@@ -1,0 +1,327 @@
+:root {
+    --primary: #ef443b;
+    --secondary: #FF8E91;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --warning: #ffc107;
+    --light: #f8f9fa;
+    --dark: #000000;
+    --dark1: #464646;
+    --WhatsApp: #00a884;
+    --facebook: #1877f2;
+    --instagram: #B84CCC;
+
+}
+
+/*globales*/
+
+html {
+    font-size: 62.5%;
+    background-color: var(--dark);
+    color: var(--white);
+    box-sizing: border-box;/*box model permite que la inclusion de propiedades como padding, margin o border no aumentenel tamaño total del elemento inicial*/
+    scroll-snap-type: y mandatory; /*permite un scroll  a cada parte del documento donde se defina en mi caso a servicios y a formulario de contacto*/
+}
+
+*, *:before, *:after {
+    box-sizing: inherit; /* el asterisco selecciona todos los elementos del HTML y aplica el box model de la etiqueta de HTML*/
+  }
+
+body {
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+    background-image: linear-gradient(to top, var(--gray-dark) 0%, var(--dark)100%) /*asigna un fondeo de panrtalla mezclando dos de los colores en mi caso negro y gris oscuro*/
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.boton{
+    background-color: rgb(239 68 59 / 50%); /*color de fondo*/
+    color: var(--light); /*color de la letra*/
+    padding: 1rem; /*grosor del pading del elemento boton*/
+    margin-top: 2rem; /*para separarlo un poco del textro*/
+    font-size: 2rem; /*tamaño de la latera*/
+    text-decoration: none; /*quita la linez que viene en los enlaces*/
+    text-transform: uppercase; /*transforma on uppercase el texto en mayuscula*/
+    font-weight: bold; /*texto en negrilla*/
+    border-radius: 1.5rem; /*borde redondeado a los botones*/
+    border-width: 0.1rem; /*quita el borde del boton*/
+    width: 90%; /*toma un ancho del 90% de la pantalla cuando la pantalla esta inferior al media quiery*/
+    text-align: center;
+}
+
+.boton:hover{
+    background-color: rgb(0 0 0 / 30%);
+    border-color: rgb(239 68 59 / 50%);
+}
+
+@media (min-width: 480px) {
+    .boton {
+        width: auto; /*reinicia el tamaño original del boton*/
+    }
+    
+}
+
+/*sombra contenedor*/
+.sombra{
+    -webkit-box-shadow: 2px 1px 20px 4px rgba(239,68,59,0.45);
+    -moz-box-shadow: 2px 1px 20px 4px rgba(239,68,59,0.45);
+    box-shadow: 2px 1px 20px 4px rgba(239,68,59,0.45);
+    background-color: rgb(52 58 64 / 30%);
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+/*tipografia*/
+h1{
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+
+/* TITULOS */
+
+.titulo span {
+    font-size: 4rem;
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(239 68 59 / 70%);
+}
+
+/* NAVEGACION PRINCIPAL */
+
+.nav-bg {
+    background-color:var(--dark);
+}
+
+.navegacion-principal {
+    padding: ,0 1rem; /*aumenta el espacio del padding en este caso 1 rem arriba y abajo*/
+    display: flex; /*activa flexboz se debe aplicar sobre el elemento padre en este caso sobre .navegacion-principal para poder dar forma a los enlaces de a*/
+    flex-direction: column;
+    justify-content: space-between; /*organiza el elemento el primer y ultimo elemento cada uno a las esquinas y los del centro les da un espacio igual a cada uno "ver en inspect sobre el navegador"*/
+}
+@media (min-width: 480px) {
+    .navegacion-principal {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row;
+    }
+}
+
+.navegacion-principal a {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.navegacion-principal a:hover{
+    background-color: rgb(239 68 59 / 70%);
+    
+}
+
+@media (min-width: 480px) {
+ .navegacion-principal a {
+    margin: 0rem;
+ }
+}
+
+.hero{
+    background-image: url(../img/hero.avif); /*con esta propiedad incluimos  una imagen en el documento dos puntos para salir de la carpeta donde estamos diagonal y el nombre de la carpeta a la que vamos a entrar y nuevamente diagional y el nombre del archivo que vamos a incluir*/
+    background-repeat: no-repeat; /*para que no se repita la imagen*/
+    background-size: cover; /*toma todo el ancho disponible */
+    height: 450px;
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.contenido-hero{
+    position: absolute;
+    /*background-color: rgba(0,0,0, .6) ; asi se usaba la transparencia antes con el alpha channel*/
+    background-color: rgb(0 0 0 / 60%); /*este algunos navegadores no lo interpretan entonces sep uede usar el anterior*/ 
+    width: 100%;
+    height: 100%;
+    /*alineacion horizontal y vertical con flex direction column*/
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* alineacion horizontal aplica con fdisply flex y flex direction column*/
+    justify-content: center; /*alineacion vertical con la misma condiicion de display flex mas direction column*/
+}
+
+.servicios, 
+.navegacion-principal, 
+.formulario {
+    scroll-snap-align: center; 
+    scroll-snap-stop: always; /*estas dos lineas de codigo hace que al dar el sroll definido en HTML se detenga en esa parte del documento, aplica en navegación principal, servicios y formulario*/
+}
+
+/*servicios*/
+
+@media (min-width: 768px) {
+    .servicios{
+        display: grid; /*propiedades de CSS grid ver video 45 en Udemy proyecto 1*/
+        /*grid-template-columns: 33.3% 33.3% 33.3%; /*define las columnas en este caso estoy definiendo 3 columnbas que ovupan el 33% del ancho del contenedor disponible*/ 
+        /*grid-template-rows: 200px 600px; /*este crea las filas en este caso dos filas una de 200px y otra de 800px*/
+        /*grid: 200px 800px / 33.3% 33.3% 33.3%; /*este reemplaza los dos anteriores se escribe asi grid: filas / columnas; para el ejercicio hay 2 filas 3 columnas*/
+        grid: 1fr / repeat(3, 1fr);/*se puede reemplazar por 1fr que significa una fraccion del espacio total del contenedor*/
+        column-gap: 2rem;
+
+    }
+} 
+
+.servicio { /*centra los circulos de coloor rojo transparente*/
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.servicio .dark {
+    color: #000000;
+}
+
+.servicio h3{
+    color: var(--secondary);
+    font-weight: 400;
+}
+
+.servicio p{
+    line-height: 2; /*interlineado para que el texto se separe un po co mas entre lienas*/
+    text-align: center;
+}
+
+.servicio .icono{ /*centra los iconos de cada unos de los servicios*/
+    height: 15rem;
+    width: 15rem;
+    background-color: rgb(239 68 59 / 20%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.servicio .icono:hover {
+    background-color: rgb(70 70 70 / 20%);
+}
+
+.servicio .WhatsApp:hover {
+    background-color: rgb(0 168 132 / 20%);
+}
+
+.servicio .facebook:hover {
+    background-color: rgb(24 119 242 / 20%);
+}
+
+.servicio .instagram:hover {
+    background-color: rgb(184 76 204 / 20%);
+}
+
+.p {
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+/*contacto*/
+
+input, textarea{
+    background-color: var(--gray-dark);
+    color: var(--white);
+    width: 100%;
+    border: none;
+    padding: 2rem;
+    border-radius: 2rem;
+} 
+
+.formulario {
+    background-color: var(--dark1);
+    width: min( 60rem, 100%);/*utiliza el valor mas pequeño*/
+    margin: 0 auto; /*centra el formulario opr lo general se usa en estos formularios*/
+    padding: 1.5rem;
+    border-radius: 2rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: var(--secondary);
+}
+
+@media (min-width: 780px) {
+    .contenedor-campos{
+        display: grid;
+        grid: auto auto 15rem / repeat(2, 1fr);
+        column-gap: 1rem;
+       }
+}
+
+.campo:nth-child(1),/*en el parentesis selecciono el campo que necesito 1 name 2 phone 3 mail 4 message*/
+.campo:nth-child(4){
+    grid-column: 1 / 3; /*selecciono las columnas qque va a ocupar ese campo si fueran filas seria grid-row*/
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+ color: var(--light);
+ font-weight: bold;
+ margin-bottom: 0.5rem;
+ display: block;
+}
+
+.w-100{
+    width: 100%;
+}
+
+
+.campo textarea{
+    height: 20rem;
+}
+
+/*footer*/
+
+.footer{
+    margin-top: 5rem;
+    background-color: rgb(239 68 59 / 50%) ;
+    text-align: start;
+    display: grid;
+    grid: 1fr / repeat(4, 1fr);
+    column-gap: 1rem;
+    padding: 2rem;
+}
+
+.foot:nth-child(3){
+    grid-column: 3 / 5;
+}
+
+
